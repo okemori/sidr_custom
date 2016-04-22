@@ -28,6 +28,7 @@
                     h = c.data("side"),
                     m = c.data("displace"),
                     v = c.data("onOpen"),
+                    go = c.data("div.sidr-grayout"),
                     y = c.data("onClose"),
                     x = "sidr" === s
                         ? "sidr-open"
@@ -52,7 +53,9 @@
                         }, d = {
                             right: "0px"
                         }),
-                    u.is("body") && (l = f.scrollTop(), f.css("overflow", "hidden").scrollTop(l)),
+                    u.is("body") && (l = f.scrollTop(),f.css("overflow", "hidden").scrollTop(l)),
+                    e(".sidr-grayout").css("background","rgba(0, 0, 0, 0.5)"),
+                    e(".sidr-grayout").css("display","block"),
                     m
                         ? u
                             .addClass("sidr-animating")
@@ -91,14 +94,16 @@
                             right: "-" + p + "px"
                         }),
                     u.is("body") && (l = f.scrollTop(), f.removeAttr("style").scrollTop(l)),
+                    e(".sidr-grayout").css("background","rgba(0, 0, 0, 0)"),
+                    e(".sidr-grayout").css("display","none"),
                     u
                         .addClass("sidr-animating")
                         .animate(r, g)
                         .removeClass(x),
-                    c.animate(d, g, function () {
-                        c
-                            .removeAttr("style")
-                            .hide(),
+                        c.animate(d, g, function () {
+                    c
+                        .removeAttr("style")
+                        .hide(),
                         u.removeAttr("style"),
                         e("html").removeAttr("style"),
                         t = !1,
@@ -106,7 +111,7 @@
                         "function" == typeof a && a(s),
                         u.removeClass("sidr-animating")
                     }),
-                    y()
+                  y()
                 }
             },
             isUrl      : function (e) {
